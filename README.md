@@ -1,4 +1,4 @@
-# Connect4
+# Connect 4
 
 Noah Fehr, Luke Klein-Collins, Shrey Agrawal
 
