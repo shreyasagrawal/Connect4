@@ -4,7 +4,7 @@ Noah Fehr, Luke Klein-Collins, Shrey Agrawal
 
 Implementing an AI Connect Four System
 
-https://docs.google.com/presentation/d/1NxPJLJFsDjD7h0kimCIh8XN8rJPbx3MDA0hB38m-WWI/edit?usp=sharing
+https://bit.ly/AIconnect4
 
 What are you planning to build?
 
