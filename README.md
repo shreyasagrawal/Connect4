@@ -4,6 +4,8 @@ Noah Fehr, Luke Klein-Collins, Shrey Agrawal
 
 Implementing an AI Connect Four System
 
+https://docs.google.com/presentation/d/1NxPJLJFsDjD7h0kimCIh8XN8rJPbx3MDA0hB38m-WWI/edit?usp=sharing
+
 What are you planning to build?
 
 We are planning to build a system in which a user can play Connect Four with a computer. The display, based on the worm lab, will allow the user to see the board in a basic user interface as they play the game against the computer.
