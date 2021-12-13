@@ -4,7 +4,9 @@ Noah Fehr, Luke Klein-Collins, Shrey Agrawal
 
 Implementing an AI Connect Four System
 
-What are you planning to build?
+COMPLETED PROJECT presentation: https://bit.ly/AIconnect4
+
+What are we building?
 
 We are planning to build a system in which a user can play Connect Four with a computer. The display, based on the worm lab, will allow the user to see the board in a basic user interface as they play the game against the computer.
 
@@ -23,7 +25,7 @@ Threads: Depending on the number of moves the computer analyzes (corresponding d
 Memory management: With GPU threads writing to memory and storing scores of each possible board, there will be a large amount of data creation, movement, and storage. This will require memory management within our system to store the data produced by these threads and coordinate this access. For example, we foresee implementing a lock to regulate access to the shared structs for each move, which every thread will need to write to at some point. 
 
 
-How will you implement this project?
+How will we implement this project?
 
 From a top level perspective, we are planning to utilize a GPU to create different possible scenarios, determine the favorability of the given scenario, and use the favorability scores of each scenario to determine the best move for the computer. 
 The game will begin with the computer playing the first token into the middle column of an empty board. After the user responds with their move, the computer will use the GPU to calculate its next move. At this point, there are seven possible moves (seven columns in which the computer can drop its token) and thus we will want seven structs to store the scores for scenarios moving ahead from that move. For example, one of the structs will keep a running total of the total favorability score for playing a token in Column 0, and the number of possible scenarios analyzed ([running total favorability score, number possible scenarios]). The GPU will use threads to analyze each possible scenario, provided the first move is a token to Column 0, and all of these threads update their corresponding struct, which represents the favorability of their move in a given column. This struct keeps running totals instead of recording every score because we are comparing the average favorability score (total favorability score / number of possible scenarios). After this process, we will have seven structs, each representing a move into that column.
@@ -34,7 +36,7 @@ Friday, December 3: GPU set-up complete, with a random scoring algorithm and no 
 Friday, December 10: Implementation complete, with scoring algorithm and UI
 Wednesday, December 15: Presentation complete
 
-What could go wrong with your implementation?
+What could go wrong with our implementation?
 
 The total number of boards to analyze is contingent on the given board at hand. Players winning the game or attempting to place tokens out of bounds will adjust this number of viable boards. To address these cases, we will put in special cases to compute scores accordingly if a move is on the upper edge of the board or if a move is resulting in a win. 
 We also acknowledge the risk that our scoring algorithm does not reflect the best move. If we play a suboptimal move it may result in a possible loss or draw. We believe that we have to accept some errors in this regard. Connect Four is a solved game and if we wanted to write an algorithm to perfectly play we could. However, we want to utilize GPU and so our scoring algorithm may not be perfect but we will try to make it as good as possible.
